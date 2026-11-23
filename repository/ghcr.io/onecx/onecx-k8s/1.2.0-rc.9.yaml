@@ -1,0 +1,47 @@
+apiVersion: v1
+organization: onecx
+product: onecx-k8s
+version: 1.2.0-rc.9
+createdAt: "2026-06-27T17:48:41Z"
+revision: 304700f801da45d654fda9d0625f73a69c72f1f3
+buildVersion: 1.2.0-rc.9
+helm: oci://ghcr.io/onecx/charts/onecx-k8s:1.2.0-rc.9
+digest: sha256:6ec74b0d0488b2b10295d215483b1e750d2807ad3a124a1756fd899e83f53c70
+applications:
+    onecx-k8s-crds:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-crds:1.3.0
+        version: 1.3.0
+        digest: sha256:56e5906720acd50d35e9cb135b953c74ddff29997792450ee0b8418f4c4f9810
+    onecx-k8s-db-postgresql-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-db-postgresql-operator:1.2.0-rc.9
+        version: 1.2.0-rc.9
+        digest: sha256:0d8ddb836b810ae6b9f1358eda58ddeea449ff5d55df6f33b7d809bf73ae93da
+        images:
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.9-native
+              digest: sha256:bcd395c256fba27268386f3a7ec4265daf8a57551e0b7cafc78680643eaa9307
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.9
+              digest: sha256:e4e2b97925a81486a2b1a5426e00e5802cf0aa200c72987aaa62bc0878c2c70b
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-06-27T16:54:00Z"
+              revision: c48c0eda64678b06f6efa4b9706d78695421f301
+              buildVersion: 1.2.0-rc.9
+              source: https://github.com/onecx/onecx-k8s-db-postgresql-operator
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers

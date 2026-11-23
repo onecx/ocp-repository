@@ -1,0 +1,47 @@
+apiVersion: v1
+organization: onecx
+product: onecx-k8s
+version: 1.2.0-rc.3
+createdAt: "2026-06-05T17:16:20Z"
+revision: 344f104ef502066afa935e1b67efd580f6fa3ab5
+buildVersion: 1.2.0-rc.3
+helm: oci://ghcr.io/onecx/charts/onecx-k8s:1.2.0-rc.3
+digest: sha256:f1a82909cdcfa3db79ab98c64310bc80420de45156190818342d11e42a7a9f61
+applications:
+    onecx-k8s-crds:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-crds:1.3.0
+        version: 1.3.0
+        digest: sha256:56e5906720acd50d35e9cb135b953c74ddff29997792450ee0b8418f4c4f9810
+    onecx-k8s-db-postgresql-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-db-postgresql-operator:1.2.0-rc.3
+        version: 1.2.0-rc.3
+        digest: sha256:ed96cc6fbfd7d15a5d24375af89a11cb2eccfe500048692b8f7dfb2d83a868c8
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.3-native
+              digest: sha256:bc88aa1d1d17ffa0c326eb50c5907119911a9b6cc248039571e3fee1e3222ec3
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.3
+              digest: sha256:37753cd46ffb062e0e8e1d3b9372cae484e443d2ffab626ecda3288119b1df15
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-06-05T17:04:53Z"
+              revision: ce76eca1988cd4ca697573942f97923fe0720316
+              buildVersion: 1.2.0-rc.3
+              source: https://github.com/onecx/onecx-k8s-db-postgresql-operator

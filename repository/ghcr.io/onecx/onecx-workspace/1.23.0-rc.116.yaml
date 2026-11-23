@@ -1,0 +1,135 @@
+apiVersion: v1
+organization: onecx
+product: onecx-workspace
+version: 1.23.0-rc.116
+createdAt: "2026-10-28T19:18:14Z"
+revision: b4a42689ee62b80096df3061cd4e89468595eff3
+buildVersion: 1.23.0-rc.116
+helm: oci://ghcr.io/onecx/charts/onecx-workspace:1.23.0-rc.116
+digest: sha256:b37f2a4d42b58a6b53ce82d9bcb94d7a523e3b74283f47f55a03e82c5b089124
+applications:
+    onecx-workspace-api-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-workspace-api-bff:1.10.0-rc.27
+        version: 1.10.0-rc.27
+        digest: sha256:f18ce558feb9781cdf2cbc05d5e52fb0050c2848f0abcc15287d0a675f73c5b2
+        images:
+            - image: ghcr.io/onecx/onecx-workspace-api-bff:1.10.0-rc.27
+              digest: sha256:aa1644e81f4884118fc119a37091975b6cfdb163ca72d0c0790f91551f6fb4b0
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T17:45:21Z"
+              revision: b0eaa26395816d4384d8edf316651337690cdb76
+              buildVersion: 1.10.0-rc.27
+              source: https://github.com/onecx/onecx-workspace-api-bff
+            - image: ghcr.io/onecx/onecx-workspace-api-bff:1.10.0-rc.27-native
+              digest: sha256:808cb09ec4e768b11e18e5e3476b085fdb933b5f4212f0ea77b31f4563d1b329
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-workspace-api-legacy:
+        helm: oci://ghcr.io/onecx/charts/onecx-workspace-api-legacy:1.12.0-rc.27
+        version: 1.12.0-rc.27
+        digest: sha256:4f65f1b264c8da471d8c96c1e9a02ecbd13ddfe96e82574795b7cb0cb464ad9f
+        images:
+            - image: ghcr.io/onecx/onecx-workspace-api-legacy:1.12.0-rc.27-native
+              digest: sha256:74b74ac8144a3532eb672227c8f007bbe87758206416ca0197b9bca0a1deb19a
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-workspace-api-legacy:1.12.0-rc.27
+              digest: sha256:3466e7fc475280fcd7fa2457c3508e15e669110c3025614ec7c17e1299fa9422
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T17:40:32Z"
+              revision: 20e606defa061904a644d4946ddaf9c918e9b1ab
+              buildVersion: 1.12.0-rc.27
+              source: https://github.com/onecx/onecx-workspace-api-legacy
+    onecx-workspace-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-workspace-bff:1.14.0-rc.27
+        version: 1.14.0-rc.27
+        digest: sha256:69e590e60d7aca36b85c730d26b09090d036478ae223738e620ddf1c296e3e0a
+        images:
+            - image: ghcr.io/onecx/onecx-workspace-bff:1.14.0-rc.27
+              digest: sha256:a77893e36d303e2b60cbd9a1c09b2e60dd7ed6095a4ab0809ecace896ff11845
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T17:14:09Z"
+              revision: cc2619aa964cc29f0c203fee8929eabe7176c17b
+              buildVersion: 1.14.0-rc.27
+              source: https://github.com/onecx/onecx-workspace-bff
+            - image: ghcr.io/onecx/onecx-workspace-bff:1.14.0-rc.27-native
+              digest: sha256:472f277add643d1e184ad1b60ecf5e36363a4b1c3931df957f3f64a4150f947c
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-workspace-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-workspace-svc:1.14.0-rc.29
+        version: 1.14.0-rc.29
+        digest: sha256:c6d60f5241083b19cd93d4f626e2d9743835433aca93511ab7b0edfbc26c7e86
+        images:
+            - image: ghcr.io/onecx/onecx-workspace-svc:1.14.0-rc.29
+              digest: sha256:22db20406a454e9f0f2246ee7623fb87e4d7edbbae3af2fc82f96f9e6c92e487
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T17:10:51Z"
+              revision: b512d5825ace8a65e7d5644ab65db633a14fd4c1
+              buildVersion: 1.14.0-rc.29
+              source: https://github.com/onecx/onecx-workspace-svc
+            - image: ghcr.io/onecx/onecx-workspace-svc:1.14.0-rc.29-native
+              digest: sha256:5ee6eb17b692fb8765b09f6353b2341b1001550f7488ccedabf597a5fc0ae123
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-workspace-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-workspace-ui:1.18.0-rc.40
+        version: 1.18.0-rc.40
+        digest: sha256:2b88928eead900be028cb2421809ab31b40a956786caa72899ae65333b4c13c0
+        images:
+            - image: ghcr.io/onecx/onecx-workspace-ui:1.18.0-rc.40
+              digest: sha256:dbc6d5d597e5386b8026eea4f6481ad97f4360f36f7b649d04889a6f75f53f20
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T19:16:22Z"
+              revision: fcf321bef1d1d7ce99d329f5dc084607d2e0bb37
+              buildVersion: 1.18.0-rc.40
+              source: https://github.com/onecx/onecx-workspace-ui

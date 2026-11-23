@@ -1,0 +1,118 @@
+apiVersion: v1
+organization: onecx
+product: onecx-user-profile
+version: 1.15.0-rc.97
+createdAt: "2026-10-28T13:40:07Z"
+revision: 9f87bb51f03f0afd78b2eaa674fd7784a9a174b9
+buildVersion: 1.15.0-rc.97
+helm: oci://ghcr.io/onecx/charts/onecx-user-profile:1.15.0-rc.97
+digest: sha256:cdd018d37d15c137919c82f987568752db05e654d3265f1e129acdec542f711e
+applications:
+    onecx-user-profile-avatar-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-user-profile-avatar-svc:1.13.0-rc.26
+        version: 1.13.0-rc.26
+        digest: sha256:04ca95a46016c442cbf3c6e490c76c667112fe929a360522dca235d70240b05f
+        images:
+            - image: ghcr.io/onecx/onecx-user-profile-avatar-svc:1.13.0-rc.26
+              digest: sha256:ebd6e12a9a6088ac09c472d0701c6286d7448a9e6c57475e154c6b198fabef23
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T07:44:40Z"
+              revision: 78157dd23394deee2e9c7e3606265945edaa0bca
+              buildVersion: 1.13.0-rc.26
+              source: https://github.com/onecx/onecx-user-profile-avatar-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-user-profile-avatar-svc:1.13.0-rc.26-native
+              digest: sha256:9c73fb67f94e0d0a20828d05a0814786d76fccc9c90890cb9ed88998f65a2959
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-user-profile-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-user-profile-bff:1.14.0-rc.25
+        version: 1.14.0-rc.25
+        digest: sha256:d56fdaf49b4c106774d8d825883593de8476815303c445ad02388894d2a532bd
+        images:
+            - image: ghcr.io/onecx/onecx-user-profile-bff:1.14.0-rc.25-native
+              digest: sha256:e2bf737849b860ecb744d0b6c0ed75822b6baf557560f902f2ce0e824caaa3d7
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-user-profile-bff:1.14.0-rc.25
+              digest: sha256:0f481e2c3c43f81d819c86a4dbcb3cdf3076338a1f105f1cd04960ffab65c17c
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T08:27:03Z"
+              revision: e185b0ac653a33585cd38012a926cbad88e37b60
+              buildVersion: 1.14.0-rc.25
+              source: https://github.com/onecx/onecx-user-profile-bff
+    onecx-user-profile-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-user-profile-svc:1.14.0-rc.26
+        version: 1.14.0-rc.26
+        digest: sha256:41082088be3dc21b3064aef5172b996f77ab394ae897c0171a6a69725185f81e
+        images:
+            - image: ghcr.io/onecx/onecx-user-profile-svc:1.14.0-rc.26-native
+              digest: sha256:d322c12d9b41245a06e734ef668b3722855419a0ddaf6d664846e19f3969174b
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-user-profile-svc:1.14.0-rc.26
+              digest: sha256:727b6ef3b571ac659f51877054eb68310688f0209d8a7fc2ca8056719e426814
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T13:24:49Z"
+              revision: 4cb5ed10eea375dfd609622b4833922607d310ae
+              buildVersion: 1.14.0-rc.26
+              source: https://github.com/onecx/onecx-user-profile-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-user-profile-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-user-profile-ui:1.13.0-rc.38
+        version: 1.13.0-rc.38
+        digest: sha256:e61f78cb4c0ff900ae44cb3536c9c033ea10a5dd77c87bd5495c52e88063742f
+        images:
+            - image: ghcr.io/onecx/onecx-user-profile-ui:1.13.0-rc.38
+              digest: sha256:81a7a1a8779b58fe31ff14e523b08fadc305c62a29b6b3364a223ecb021c41ea
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T15:09:24Z"
+              revision: b42a88ef2aed11df10c40755521dd4d1b1db618a
+              buildVersion: 1.13.0-rc.38
+              source: https://github.com/onecx/onecx-user-profile-ui

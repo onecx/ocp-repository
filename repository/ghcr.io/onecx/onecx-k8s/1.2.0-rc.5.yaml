@@ -1,0 +1,47 @@
+apiVersion: v1
+organization: onecx
+product: onecx-k8s
+version: 1.2.0-rc.5
+createdAt: "2026-06-11T09:38:01Z"
+revision: e0ab22af9f2152f2cc91176220d5145bcd6e2f0a
+buildVersion: 1.2.0-rc.5
+helm: oci://ghcr.io/onecx/charts/onecx-k8s:1.2.0-rc.5
+digest: sha256:afc366355d40f95c43e88110b2d928bef8f20b6a4f76eb189f18243a0956d817
+applications:
+    onecx-k8s-crds:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-crds:1.3.0
+        version: 1.3.0
+        digest: sha256:56e5906720acd50d35e9cb135b953c74ddff29997792450ee0b8418f4c4f9810
+    onecx-k8s-db-postgresql-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-db-postgresql-operator:1.2.0-rc.5
+        version: 1.2.0-rc.5
+        digest: sha256:bc803447cb877e8a900dd4beb074be83f17034c19fbedd9c7fc6f07d0cb447ba
+        images:
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.5
+              digest: sha256:f9a83496b7c1b4d79bb583ad7f5c8493d237823823dc21d10dbe0785b6cccc00
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-06-11T09:27:52Z"
+              revision: b132c5a45b3ac54d01937a267243b90a7329a42d
+              buildVersion: 1.2.0-rc.5
+              source: https://github.com/onecx/onecx-k8s-db-postgresql-operator
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.5-native
+              digest: sha256:74cacf6ee932849dab89aa7c083714748fdaf3b53069cee8568e7f0e8b266e1d
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
