@@ -1,0 +1,75 @@
+apiVersion: v1
+organization: ssp
+product: ssp-order
+version: 0.0.0-rc.65
+createdAt: "2026-11-19T08:41:12Z"
+revision: a91435004cffa48d3baf13ec2a2fd593753debe7
+buildVersion: 0.0.0-rc.65
+helm: oci://registry.onstackit.cloud/cap-nrw/ssp/charts/ssp-order:0.0.0-rc.65
+digest: sha256:f1ffbfa121db894bd5a0a0d42bcb2df7c2a11b4499b81b0ec786f8944b532917
+applications:
+    ssp-order-bff:
+        helm: oci://registry.onstackit.cloud/cap-nrw/ssp/charts/ssp-order-bff:0.0.0-rc.38
+        version: 0.0.0-rc.38
+        digest: sha256:d468bd2578600313965aa79e16830975d7150f414bbaa186ddb85fd7ea4fe2ae
+        images:
+            - image: registry.onstackit.cloud/cap-nrw/ssp/ssp-order-bff:0.0.0-rc.38-native
+              kind: Deployment
+              key: containers
+            - image: registry.onstackit.cloud/cap-nrw/ssp/ssp-order-bff:0.0.0-rc.38
+              digest: sha256:c61d12c7b678d4ba20b6d75795ad91c1687109a574abc5b98513a7bc89d29833
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T08:00:30Z"
+              revision: f87f7a90eb4c79f5adc8b347ee7a59af54c7d18a
+              buildVersion: 0.0.0-rc.38
+              source: https://cap-nrw.git.onstackit.cloud/ssp/ssp-order-bff
+    ssp-order-svc:
+        helm: oci://registry.onstackit.cloud/cap-nrw/ssp/charts/ssp-order-svc:0.0.0-rc.37
+        version: 0.0.0-rc.37
+        digest: sha256:ca1a184be4500e497ec83f6b55de3fbd52a478402eb41da1fd2cdccaf98b9278
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: registry.onstackit.cloud/cap-nrw/ssp/ssp-order-svc:0.0.0-rc.37
+              digest: sha256:479f87f7dbfe094f8798696f660112b9b3d4c0490081c139e284320020fb1602
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T07:07:00Z"
+              revision: e499b6dbe5e7dd69ff9c1d2981d9a7aaeebd7fca
+              buildVersion: 0.0.0-rc.37
+              source: https://cap-nrw.git.onstackit.cloud/ssp/ssp-order-svc
+            - image: registry.onstackit.cloud/cap-nrw/ssp/ssp-order-svc:0.0.0-rc.37-native
+              kind: Deployment
+              key: containers
+    ssp-order-ui:
+        helm: oci://registry.onstackit.cloud/cap-nrw/ssp/charts/ssp-order-ui:0.0.0-rc.153
+        version: 0.0.0-rc.153
+        digest: sha256:d65743bb9c408930a252507840a32490fbe1f5c6c2c3fce50558ec7dec82eac3
+        images:
+            - image: registry.onstackit.cloud/cap-nrw/ssp/ssp-order-ui:0.0.0-rc.153
+              digest: sha256:4775a68ae3399b81c3cad73bf22c352febea68a1839e9c56e963348d0ae633d7
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-19T08:38:37Z"
+              revision: a42f938f7dc6abdb8141359c4b2c70398d4a1859
+              buildVersion: 0.0.0-rc.153
+              source: https://cap-nrw.git.onstackit.cloud/ssp/ssp-order-ui

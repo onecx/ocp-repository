@@ -1,0 +1,106 @@
+apiVersion: v1
+organization: onecx
+product: onecx-iam
+version: 1.13.0-rc.2
+createdAt: "2026-11-10T13:39:15Z"
+revision: 224cac6c48b0466f1e42129d1865bb702623edca
+buildVersion: 1.13.0-rc.2
+helm: oci://ghcr.io/onecx/charts/onecx-iam:1.13.0-rc.2
+digest: sha256:33e0c2e2eb9a46c3884c81c36310063d979b190c123946de289881e18525279e
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-iam-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-iam-bff:1.11.0-rc.1
+        version: 1.11.0-rc.1
+        digest: sha256:97994bb8e113504b8ca30c64fbb4a139045532a0670f55ec57a5f4dde3f39ccb
+        images:
+            - image: ghcr.io/onecx/onecx-iam-bff:1.11.0-rc.1
+              digest: sha256:ab6616aca4effbb91f550114d1b3baec5f1104baae0822bab2e1dfa73c6ced0b
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T12:37:25Z"
+              revision: d5b045c75a2a025710dbaf6869d715505875ef50
+              buildVersion: 1.11.0-rc.1
+              source: https://github.com/onecx/onecx-iam-bff
+            - image: ghcr.io/onecx/onecx-iam-bff:1.11.0-rc.1-native
+              digest: sha256:50302f53821e706fca50d8dae6a000454f5d14e9c9e42ef5fd313d3bfb2272c6
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+    onecx-iam-kc-client-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-iam-kc-client-operator:1.12.0-rc.1
+        version: 1.12.0-rc.1
+        digest: sha256:4b695016a145188d6e080e3680f1aa788eb0ca81607264fa568f72f69b56b0ec
+        images:
+            - image: ghcr.io/onecx/onecx-iam-kc-client-operator:1.12.0-rc.1
+              digest: sha256:eff7ff27c2ad24b28f8b61115c73c0c56791ee2857ea918ca98caf35150adef2
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T12:47:55Z"
+              revision: 73c176b8756ba95927fb90b984f107f9ffb5b048
+              buildVersion: 1.12.0-rc.1
+              source: https://github.com/onecx/onecx-iam-kc-client-operator
+            - image: ghcr.io/onecx/onecx-iam-kc-client-operator:1.12.0-rc.1-native
+              digest: sha256:37ba6842697aa7f1ff94f6e06c7418ee60bbbe2ba8c4c0210990ba9905c2fb8c
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-iam-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-iam-svc:1.6.0-rc.1
+        version: 1.6.0-rc.1
+        digest: sha256:40b3a94564bbc672689d80b3104ac1e2e542fac88d0e95546af5743697653e50
+        images:
+            - image: ghcr.io/onecx/onecx-iam-svc:1.6.0-rc.1-native
+              digest: sha256:45a73182a6e264aa320bc1c7bb334c2454b7e3354a96264ec410d5651212892c
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-iam-svc:1.6.0-rc.1
+              digest: sha256:a61f05a8c0a9686a85eb95e8ccb868c2f34459d667993de4acec9d665a202d71
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T13:16:12Z"
+              revision: 8878863fd61d69754886d330d8afe88b42a9322a
+              buildVersion: 1.6.0-rc.1
+              source: https://github.com/onecx/onecx-iam-svc
+    onecx-iam-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-iam-ui:1.8.0
+        version: 1.8.0
+        digest: sha256:c6bd2630b337a29f48745c02f3f07229b1a0b1e0258bfcfdd0bdc084f6c4048e
+        images:
+            - image: ghcr.io/onecx/onecx-iam-ui:1.8.0
+              digest: sha256:a47d23c6e78543d992514e6cb80cf5753178a2bbf6a46f65f6e40e21e6551261
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-02T05:47:23Z"
+              revision: 0077a7498b1982edd6e65bbd625e99338d103d5e
+              buildVersion: 1.8.0-rc.43
+              source: https://github.com/onecx/onecx-iam-ui

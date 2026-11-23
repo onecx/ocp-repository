@@ -1,0 +1,51 @@
+apiVersion: v1
+organization: onecx
+product: onecx-k8s
+version: 1.2.0-rc.14
+createdAt: "2026-08-20T18:07:49Z"
+revision: 6e5450df3a25a316ee1a40192e1baf812bb307f7
+buildVersion: 1.2.0-rc.14
+helm: oci://ghcr.io/onecx/charts/onecx-k8s:1.2.0-rc.14
+digest: sha256:3f00b12fbfcf5dba5225d67242fb6d75a4ffff87d0522b62122f820dca38e7f4
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-k8s-crds:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-crds:1.3.0
+        version: 1.3.0
+        digest: sha256:56e5906720acd50d35e9cb135b953c74ddff29997792450ee0b8418f4c4f9810
+    onecx-k8s-db-postgresql-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-db-postgresql-operator:1.2.0-rc.14
+        version: 1.2.0-rc.14
+        digest: sha256:e5bef55ffca0cf9de11caadd5ee9926bc7b3951119c4d219b5568d5efddb551e
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.14-native
+              digest: sha256:1317ecdea01e6dc7daeae5e294e8138c2f51cd4ca9e147a58280877338e7690c
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.14
+              digest: sha256:8154cca38edd9177cc41393941a023f31c22dfdf149521ff3a6be5b345b4b7ad
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-08-20T17:42:59Z"
+              revision: 835ad2f861fea04ea32acff1880027d2330e911d
+              buildVersion: 1.2.0-rc.14
+              source: https://github.com/onecx/onecx-k8s-db-postgresql-operator

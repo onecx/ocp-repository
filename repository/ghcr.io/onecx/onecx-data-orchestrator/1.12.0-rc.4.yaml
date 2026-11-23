@@ -1,0 +1,81 @@
+apiVersion: v1
+organization: onecx
+product: onecx-data-orchestrator
+version: 1.12.0-rc.4
+createdAt: "2026-11-10T21:19:48Z"
+revision: fa1ad990fe51953e281af9d95bf7a4747f8d9fd2
+buildVersion: 1.12.0-rc.4
+helm: oci://ghcr.io/onecx/charts/onecx-data-orchestrator:1.12.0-rc.4
+digest: sha256:f6968a4c27995e2e1ed2f966a878e55b39c793ec9ef492828dd03923843b4c7c
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-data-orchestrator-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-data-orchestrator-bff:1.10.0-rc.3
+        version: 1.10.0-rc.3
+        digest: sha256:c3de580af9a2dd63ffcd735fc17f317ba09774e31290b9fde8aa08a4d755ae12
+        images:
+            - image: ghcr.io/onecx/onecx-data-orchestrator-bff:1.10.0-rc.3
+              digest: sha256:2baf0b98f85f3f4795b79a1eeba5523f6df10f6dad9f32cf9cd8e8edeaa488ac
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T20:40:02Z"
+              revision: feadcf81e3fab882a52fd3ff37384e380ed34978
+              buildVersion: 1.10.0-rc.3
+              source: https://github.com/onecx/onecx-data-orchestrator-bff
+            - image: ghcr.io/onecx/onecx-data-orchestrator-bff:1.10.0-rc.3-native
+              digest: sha256:56452525ebc7d5938b2a46c10cc83c4383be8b8ddea97985b56d5ed5b3f0340c
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-data-orchestrator-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-data-orchestrator-operator:1.12.0-rc.2
+        version: 1.12.0-rc.2
+        digest: sha256:553216db271a812ed87c4be31e12c01f97d1fb600cc8140bbd5544a5becff39b
+        images:
+            - image: ghcr.io/onecx/onecx-data-orchestrator-operator:1.12.0-rc.2-native
+              digest: sha256:9d24d9ca92198d7b20adfff8d2707297e1c81ce380b7ff663039ef454615e769
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-data-orchestrator-operator:1.12.0-rc.2
+              digest: sha256:71af16ed57708e23c130c2e569498f2ba0d6c8534023b6929df55c60f0053985
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T16:39:56Z"
+              revision: 9d2f6fdd854bf6bc7ee28d1ca711b0c996f4c3aa
+              buildVersion: 1.12.0-rc.2
+              source: https://github.com/onecx/onecx-data-orchestrator-operator
+    onecx-data-orchestrator-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-data-orchestrator-ui:1.7.0
+        version: 1.7.0
+        digest: sha256:dfbecaa4c1d9df82c6ac15c30565dc7ce4dc2b8af8765327704a84758d334276
+        images:
+            - image: ghcr.io/onecx/onecx-data-orchestrator-ui:1.7.0
+              digest: sha256:bbc4a2ac6f0e96c953f14e25524a0c8978b78474dc5e091b5c28068fad34a377
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-02T12:12:51Z"
+              revision: f89e07b59871922f3ddb8fc4bfca9c1547a3663d
+              buildVersion: 1.7.0-rc.36
+              source: https://github.com/onecx/onecx-data-orchestrator-ui

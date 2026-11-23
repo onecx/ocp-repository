@@ -1,0 +1,89 @@
+apiVersion: v1
+organization: onecx
+product: onecx-welcome
+version: 1.13.0-rc.4
+createdAt: "2026-11-10T16:59:16Z"
+revision: 023991bf27744359199e7b306a1ea7476614765b
+buildVersion: 1.13.0-rc.4
+helm: oci://ghcr.io/onecx/charts/onecx-welcome:1.13.0-rc.4
+digest: sha256:3ba30fc202e3f6174cf798ac215bcecde64ce98ec653fb2e60b8a60cb8be66c6
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-welcome-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-welcome-bff:1.11.0-rc.1
+        version: 1.11.0-rc.1
+        digest: sha256:6021a49bff0cda2a911546c0fc9b603f26aeb5eb49855d7e50fe3f1da1d031b2
+        images:
+            - image: ghcr.io/onecx/onecx-welcome-bff:1.11.0-rc.1
+              digest: sha256:ad1858701131cfab5007dfa774e5bbeaadc190b8d05f0a55976bf87e65168c05
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T13:01:49Z"
+              revision: b56d74558ebca787503d4172d0d65cefc6a2faa0
+              buildVersion: 1.11.0-rc.1
+              source: https://github.com/onecx/onecx-welcome-bff
+            - image: ghcr.io/onecx/onecx-welcome-bff:1.11.0-rc.1-native
+              digest: sha256:b065e8de829c146919f48480b680396bdcbb1517f4b930b41d90fde071a3c172
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-welcome-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-welcome-svc:1.12.0-rc.2
+        version: 1.12.0-rc.2
+        digest: sha256:2ded792dad6c96ec51dbf4d001afa8c71d0ad895a9538dc73ee0d048042860bd
+        images:
+            - image: ghcr.io/onecx/onecx-welcome-svc:1.12.0-rc.2
+              digest: sha256:ad297f436606325251c6ccc76c9063b2dc54922e3a51cb8a8650cbea94426b92
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T16:25:37Z"
+              revision: 493f8d99cf0cb9e4385b377f236e0e0ae36a5292
+              buildVersion: 1.12.0-rc.2
+              source: https://github.com/onecx/onecx-welcome-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-welcome-svc:1.12.0-rc.2-native
+              digest: sha256:324e2574bc0b2ce108ff88442d78fb86a5cfb62c52d0b3461aaec50a35101cdf
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+    onecx-welcome-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-welcome-ui:1.10.0-rc.1
+        version: 1.10.0-rc.1
+        digest: sha256:4c9cdd8f5546dff659218a605cd8eb444d2b8ecdf4f837794e3df352d6f8ea83
+        images:
+            - image: ghcr.io/onecx/onecx-welcome-ui:1.10.0-rc.1
+              digest: sha256:54d350268aa62e344731f5ad1cdb565d435c099018428d4f1c0b2607fcf604e0
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-04T07:10:59Z"
+              revision: fd51b27e325da5df7e95e559900949eb27c7ef93
+              buildVersion: 1.10.0-rc.1
+              source: https://github.com/onecx/onecx-welcome-ui

@@ -1,0 +1,51 @@
+apiVersion: v1
+organization: onecx
+product: onecx-k8s
+version: 1.2.0-rc.23
+createdAt: "2026-10-27T14:58:00Z"
+revision: 43f83b39a7b3af43a5ef6355d135a414535fcef8
+buildVersion: 1.2.0-rc.23
+helm: oci://ghcr.io/onecx/charts/onecx-k8s:1.2.0-rc.23
+digest: sha256:c448968d0fc8c613e53a92434faafea68514ae5944ec9fdce0f54aef79dc4d02
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-k8s-crds:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-crds:1.3.0
+        version: 1.3.0
+        digest: sha256:56e5906720acd50d35e9cb135b953c74ddff29997792450ee0b8418f4c4f9810
+    onecx-k8s-db-postgresql-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-k8s-db-postgresql-operator:1.2.0-rc.23
+        version: 1.2.0-rc.23
+        digest: sha256:74f8bac342b67a073e6b2b6f86b4030c1cc2c96a6c7f045ab6ed6a1abe97be7d
+        images:
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.23
+              digest: sha256:881f53dd9b10472c9f3ddec45e04ded352137b90d77e99a2f0a869db3709e618
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T14:06:45Z"
+              revision: eb73b4e7fbd18e5e8c3d1c433661edc47a0250a8
+              buildVersion: 1.2.0-rc.23
+              source: https://github.com/onecx/onecx-k8s-db-postgresql-operator
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-k8s-db-postgresql-operator:1.2.0-rc.23-native
+              digest: sha256:4b6013489d327340dbbd1ea143804839dfafda35c4e5d8f0efe9f1bf56a1aa8d
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers

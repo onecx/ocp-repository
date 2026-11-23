@@ -1,0 +1,89 @@
+apiVersion: v1
+organization: onecx
+product: onecx-tenant
+version: 1.11.0-rc.77
+createdAt: "2026-10-28T05:49:09Z"
+revision: d57a996ff4c882397117e36b2c37a76af9a5c5d9
+buildVersion: 1.11.0-rc.77
+helm: oci://ghcr.io/onecx/charts/onecx-tenant:1.11.0-rc.77
+digest: sha256:12ba055db7a33a7bbc300738111af3d339a4eaba1091c156f99c179f20166ac3
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-tenant-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-tenant-bff:1.10.0-rc.26
+        version: 1.10.0-rc.26
+        digest: sha256:9ed9df9bd2b7d4b1bd3caa81a3e1d847d934c4ae0a40e1997a5d7e070dbcabfa
+        images:
+            - image: ghcr.io/onecx/onecx-tenant-bff:1.10.0-rc.26-native
+              digest: sha256:826fb283cc153e0f64a0e7cee24a47bda4398f2682f09620f4fec14c43eae367
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-tenant-bff:1.10.0-rc.26
+              digest: sha256:570162f94a4f2c82d9bb626e43c74898cbd6efcfa301cb3bb5c4922fddb570c3
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T14:20:54Z"
+              revision: 2bc47d29f58dab45cd12559de7dd9b7cbbb1efda
+              buildVersion: 1.10.0-rc.26
+              source: https://github.com/onecx/onecx-tenant-bff
+    onecx-tenant-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-tenant-svc:1.11.0-rc.27
+        version: 1.11.0-rc.27
+        digest: sha256:d30fa737af29a35c1eaf1be903e153d8f0d8f28a678252e5a756177397a51159
+        images:
+            - image: ghcr.io/onecx/onecx-tenant-svc:1.11.0-rc.27-native
+              digest: sha256:5fd789c02526f5b80cd55303e927f4aed67652fb9cf855ea307c9d7ce2c87001
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-tenant-svc:1.11.0-rc.27
+              digest: sha256:d2c5959893981f48d25e6f718717dd5c6c18306db41df0452a85b9b1c81a2bcd
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T15:26:14Z"
+              revision: 65633912afa4599bb0c28871fa55ce94338145cc
+              buildVersion: 1.11.0-rc.27
+              source: https://github.com/onecx/onecx-tenant-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-tenant-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-tenant-ui:1.8.0-rc.37
+        version: 1.8.0-rc.37
+        digest: sha256:ace2735c8caae0411decf874ca9f509495068db0a9f8773aaa23295dd92ebb2c
+        images:
+            - image: ghcr.io/onecx/onecx-tenant-ui:1.8.0-rc.37
+              digest: sha256:0a02b11fe1c67eeb7a1f48a0d289978d31a18ce5ef212b124e0fd89d0320f340
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T05:47:51Z"
+              revision: 44fa189296e1814ade890dad427b1518950019c2
+              buildVersion: 1.8.0-rc.37
+              source: https://github.com/onecx/onecx-tenant-ui

@@ -1,0 +1,9 @@
+apiVersion: v1
+organization: ssp
+product: ssp-service
+version: 0.0.0-rc.2
+createdAt: "2026-11-12T10:38:29Z"
+revision: fc66322ec2aa7fed635abb16495d519b3a58350a
+buildVersion: 0.0.0-rc.2
+helm: oci://registry.onstackit.cloud/cap-nrw/ssp/charts/ssp-service:0.0.0-rc.2
+digest: sha256:089098334a02de46f4d8c55b7d5185750e98f6bdb9470bdcc3d44fcfcf26989f

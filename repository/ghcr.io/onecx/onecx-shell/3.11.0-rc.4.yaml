@@ -1,0 +1,56 @@
+apiVersion: v1
+organization: onecx
+product: onecx-shell
+version: 3.11.0-rc.4
+createdAt: "2026-11-20T17:03:28Z"
+revision: 579f25d770ef4562250a812b3ca2493d3a6b73b7
+buildVersion: 3.11.0-rc.4
+helm: oci://ghcr.io/onecx/charts/onecx-shell:3.11.0-rc.4
+digest: sha256:2bb8253c0b32eb9d9b5372d7542f90ed2632e07d5e3128268b5ce5f2b39910c3
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-shell-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-shell-bff:1.19.0-rc.2
+        version: 1.19.0-rc.2
+        digest: sha256:390d647d1b6c8953181122849d66164830d6feeb2f9f3b58b67d2742861453b3
+        images:
+            - image: ghcr.io/onecx/onecx-shell-bff:1.19.0-rc.2
+              digest: sha256:fd95bddbcd42fa01105ba0d5614f6e2c568247d54b89f4a458e9b25ebd6711b7
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-20T16:18:37Z"
+              revision: 1802b7ad5de4bd001214a2d040112156528d4783
+              buildVersion: 1.19.0-rc.2
+              source: https://github.com/onecx/onecx-shell-bff
+            - image: ghcr.io/onecx/onecx-shell-bff:1.19.0-rc.2-native
+              digest: sha256:a7f63a12c9757b23962b02b861ee02fcb21fb4f0945c9c2dc71cbfb4e77ad983
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-shell-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-shell-ui:3.13.0-rc.2
+        version: 3.13.0-rc.2
+        digest: sha256:d982e955b2e0502a67dbce06a502ed25766303bbcfbacc76f5068c46c14ef66b
+        images:
+            - image: ghcr.io/onecx/onecx-shell-ui:3.13.0-rc.2
+              digest: sha256:214a9a8d471d61dd9f70fe6ac49f2145be72e8356a64232635cf821ccc912dbd
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-20T07:42:41Z"
+              revision: 5edb5089729e6aa2f43626d1719b22810dacd5db
+              buildVersion: 3.13.0-rc.2
+              source: https://github.com/onecx/onecx-shell-ui

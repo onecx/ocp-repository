@@ -1,0 +1,21 @@
+defaults:
+  registry: oci://ghcr.io
+  organization: onecx
+  count: 30
+products:
+  - product: onecx-announcement
+  - product: onecx-bookmark
+  - product: onecx-data-orchestrator
+  - product: onecx-help
+  - product: onecx-iam
+  - product: onecx-parameter
+  - product: onecx-permission
+  - product: onecx-product-store
+  - product: onecx-shell
+  - product: onecx-tenant
+  - product: onecx-test
+  - product: onecx-theme
+  - product: onecx-user-profile
+  - product: onecx-welcome
+  - product: onecx-workspace
+  - product: onecx-k8s

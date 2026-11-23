@@ -1,0 +1,93 @@
+apiVersion: v1
+organization: onecx
+product: onecx-product-store
+version: 1.17.0-rc.11
+createdAt: "2026-11-11T08:06:23Z"
+revision: 662887f92f0d4f2e6d2e59cf2b9b3a082ce1f729
+buildVersion: 1.17.0-rc.11
+helm: oci://ghcr.io/onecx/charts/onecx-product-store:1.17.0-rc.11
+digest: sha256:069b79181608543b64266220dca085d1c725fe8beb20bf38a8bc19766ec0db75
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-product-store-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-product-store-bff:1.13.0-rc.4
+        version: 1.13.0-rc.4
+        digest: sha256:5e10b1dd4e55c0a40e11e2d3d599140f1818c5000fc6ee12b044025c38352e21
+        images:
+            - image: ghcr.io/onecx/onecx-product-store-bff:1.13.0-rc.4-native
+              digest: sha256:7737d7ecc0a7f15a0d37db3663f889c28a2a5554b3606dbbadbb6b79c088f398
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-product-store-bff:1.13.0-rc.4
+              digest: sha256:7f86956a942fdcfeed11cb4cdee0cff60fe5aca631498da5c7bb465f08731514
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-11T07:09:15Z"
+              revision: 9039b42ea70ad70e4343085757847a70cf99b33b
+              buildVersion: 1.13.0-rc.4
+              source: https://github.com/onecx/onecx-product-store-bff
+    onecx-product-store-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-product-store-operator:1.12.0-rc.4
+        version: 1.12.0-rc.4
+        digest: sha256:2a55f39ed6c9d6ac7e3ca91f459821f470dbcc4131399a331c7f42e3c4051970
+    onecx-product-store-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-product-store-svc:1.17.0-rc.4
+        version: 1.17.0-rc.4
+        digest: sha256:40b1ab63a0ae6f5ae684080f0686ff63bd0b8175579338b6b493d717bbbbfc20
+        images:
+            - image: ghcr.io/onecx/onecx-product-store-svc:1.17.0-rc.4
+              digest: sha256:3ac242dcb675c971c1b41f38009fcc3aff122b589abe84475dfaf68c5249668f
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-11T07:14:46Z"
+              revision: 80c721193210fade415bfb17b3059ca1a1b712e1
+              buildVersion: 1.17.0-rc.4
+              source: https://github.com/onecx/onecx-product-store-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-product-store-svc:1.17.0-rc.4-native
+              digest: sha256:f1b4a6cdd5a639164ac3cd802508f60eef891345611ede5064e064ade5a94bff
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+    onecx-product-store-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-product-store-ui:1.13.0
+        version: 1.13.0
+        digest: sha256:c95233b596e5de58ca414e77562c247032d529c4e77783b022fdb2f964ff2e29
+        images:
+            - image: ghcr.io/onecx/onecx-product-store-ui:1.13.0
+              digest: sha256:2d6a863f060c42bfaf8e9716dc9820333e48d5f358366a8c9ba4e6b83f36b665
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-02T09:31:02Z"
+              revision: 0f2525a1c0fe459140976024580a610ee0b6b592
+              buildVersion: 1.13.0-rc.50
+              source: https://github.com/onecx/onecx-product-store-ui

@@ -1,0 +1,89 @@
+apiVersion: v1
+organization: onecx
+product: onecx-bookmark
+version: 0.0.0-rc.437
+createdAt: "2026-10-28T21:25:21Z"
+revision: 3f31857d818dff2b290561a2786c07a90dee2eea
+buildVersion: 0.0.0-rc.437
+helm: oci://ghcr.io/onecx/charts/onecx-bookmark:0.0.0-rc.437
+digest: sha256:521ea917d96860698c557d95e62dc2ec84ddadc7eae41c63f71f11517d1275eb
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-bookmark-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-bookmark-bff:0.0.0-rc.141
+        version: 0.0.0-rc.141
+        digest: sha256:9f3c45e7791ea603cb2137c68cfdce60455bf6697cb09cef61f7bb933fa4e356
+        images:
+            - image: ghcr.io/onecx/onecx-bookmark-bff:0.0.0-rc.141-native
+              digest: sha256:a3f1c34e43e5e4b72fd5458a8db192e663d76f6cfff99f30d77da521c7449d8d
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-bookmark-bff:0.0.0-rc.141
+              digest: sha256:f0c557ca71a78c38764edaf495a43e8f04d14c4564765e0a35507bac8e447deb
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T20:29:34Z"
+              revision: 6e73266ff20c3b7787709295d6c3960e022d745d
+              buildVersion: 0.0.0-rc.141
+              source: https://github.com/onecx/onecx-bookmark-bff
+    onecx-bookmark-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-bookmark-svc:0.0.0-rc.153
+        version: 0.0.0-rc.153
+        digest: sha256:b3b3e10906286128197f1d52276991cbea25023ca13690b425b86d94c6e64c25
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-bookmark-svc:0.0.0-rc.153-native
+              digest: sha256:a0c6a586a8fe2aab1a372ac2c9fee9b936e73331807c75ca40af33a1f28183bd
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-bookmark-svc:0.0.0-rc.153
+              digest: sha256:36d4ff38f84125624bc7c4b9d9ecdeed6c78610154eec818e96fbad70115d961
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T17:12:38Z"
+              revision: 3a09fa44920b1a4dbfcd7564f6c2baf094f1e457
+              buildVersion: 0.0.0-rc.153
+              source: https://github.com/onecx/onecx-bookmark-svc
+    onecx-bookmark-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-bookmark-ui:0.0.0-rc.173
+        version: 0.0.0-rc.173
+        digest: sha256:b4393ef7a579788b0e07e16f3619b7839348dae7dc602ed4383563daac2b577d
+        images:
+            - image: ghcr.io/onecx/onecx-bookmark-ui:0.0.0-rc.173
+              digest: sha256:b2c750ffb97d852aad4e41fb52713aadc1e1091a80f9be5ac6b6b1e8e7367990
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T19:19:36Z"
+              revision: 325a7e5224e459afb2742fdae56e09133480c003
+              buildVersion: 0.0.0-rc.173
+              source: https://github.com/onecx/onecx-bookmark-ui

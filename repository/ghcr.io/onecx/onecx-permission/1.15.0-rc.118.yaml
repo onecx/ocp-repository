@@ -1,0 +1,114 @@
+apiVersion: v1
+organization: onecx
+product: onecx-permission
+version: 1.15.0-rc.118
+createdAt: "2026-11-02T06:00:12Z"
+revision: ebab824ac34e50a70981083609c0389cbf1ff31e
+buildVersion: 1.15.0-rc.118
+helm: oci://ghcr.io/onecx/charts/onecx-permission:1.15.0-rc.118
+digest: sha256:9873ddb46bc0029c4fab54e927a5cb0e5baba32607f738dabf8b1806ca7eadf9
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-permission-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-permission-bff:1.13.0-rc.29
+        version: 1.13.0-rc.29
+        digest: sha256:7624e016253aca7f9fe004ea8865ecb219f2e566c5483793e62aae5ac78d2834
+        images:
+            - image: ghcr.io/onecx/onecx-permission-bff:1.13.0-rc.29-native
+              digest: sha256:648ef917a5e0a940f60ead82bf2a97f687eb8d913f3eb6c2c4f5b13c8b6b38aa
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-permission-bff:1.13.0-rc.29
+              digest: sha256:a8a432d9a2a0c7894fc6cc54c69a6323e97926de8994165b2559535d6dcb92f8
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T20:39:39Z"
+              revision: 768db476326ddb111f850304fa0f471276f98d5d
+              buildVersion: 1.13.0-rc.29
+              source: https://github.com/onecx/onecx-permission-bff
+    onecx-permission-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-permission-operator:1.11.0-rc.27
+        version: 1.11.0-rc.27
+        digest: sha256:95b4071e9e18ef1287c81f80205b7b734be0e38bbf32c6e8e51132c0c2b38141
+        images:
+            - image: ghcr.io/onecx/onecx-permission-operator:1.11.0-rc.27-native
+              digest: sha256:4f3e7ff091c4bf0b826566875c5ccf96a6e65de30882132449697103e9c8aaf8
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-permission-operator:1.11.0-rc.27
+              digest: sha256:5bf255611ae7a83921cc74019cd25eec0808a86361f56797a4014f3ce7e1d5f2
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T21:03:43Z"
+              revision: fdd05d19b105ffd973b6823eb1c9bf63af72bdaa
+              buildVersion: 1.11.0-rc.27
+              source: https://github.com/onecx/onecx-permission-operator
+    onecx-permission-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-permission-svc:1.13.0-rc.28
+        version: 1.13.0-rc.28
+        digest: sha256:103e5053923cb2949ac02de9136d6dc91d34418320c89f0f1c512b6b4dc2f019
+        images:
+            - image: ghcr.io/onecx/onecx-permission-svc:1.13.0-rc.28-native
+              digest: sha256:3635025f3024e09425fedb89c85df49f0db5dd9117b8dc30526a43bd8cc6ef90
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-permission-svc:1.13.0-rc.28
+              digest: sha256:f7013ab452352ad82825c32236850c53a86bcac1adcf6ccf183c41534a8d5d0c
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T21:10:19Z"
+              revision: b54aeff28ef79bc119264430335d9a0f4bdf009f
+              buildVersion: 1.13.0-rc.28
+              source: https://github.com/onecx/onecx-permission-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-permission-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-permission-ui:1.13.0-rc.50
+        version: 1.13.0-rc.50
+        digest: sha256:2cb44c6c455dedcc009d148b3fc38b85434906da9e5230584df3eaf47cee8486
+        images:
+            - image: ghcr.io/onecx/onecx-permission-ui:1.13.0-rc.50
+              digest: sha256:1aa8a50df26733a9ba2ea7208d4e5ac51bb6701c17075924c7483442a22beb71
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-02T05:58:49Z"
+              revision: ccb43ef4bedad13556b6b2293b1251919281a1d1
+              buildVersion: 1.13.0-rc.50
+              source: https://github.com/onecx/onecx-permission-ui

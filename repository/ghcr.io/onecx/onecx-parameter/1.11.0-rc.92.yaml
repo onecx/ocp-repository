@@ -1,0 +1,110 @@
+apiVersion: v1
+organization: onecx
+product: onecx-parameter
+version: 1.11.0-rc.92
+createdAt: "2026-10-27T15:15:56Z"
+revision: b40484b5e7d071bbdc78f05bee65db58ee2376e7
+buildVersion: 1.11.0-rc.92
+helm: oci://ghcr.io/onecx/charts/onecx-parameter:1.11.0-rc.92
+digest: sha256:300a43ab90fd33a899c2137cc923492bd7f842bc19730a0db8d8921a01625c90
+applications:
+    onecx-parameter-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-parameter-bff:1.7.0-rc.25
+        version: 1.7.0-rc.25
+        digest: sha256:e366c10627a9642049010db72ff7480d2fb39d4007c08fa66fc87750b0706970
+        images:
+            - image: ghcr.io/onecx/onecx-parameter-bff:1.7.0-rc.25-native
+              digest: sha256:efb2528d3fd25dcba18512e62534604797158087992481030b26da37ec4cde33
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-parameter-bff:1.7.0-rc.25
+              digest: sha256:fdf987bbd765512d7648995ff7f9ff51079734c04c5aa04783671b3b314187e4
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T11:20:11Z"
+              revision: 7e6c7c9d8a8426ad5b7a4b7bdfae5b3707c2f347
+              buildVersion: 1.7.0-rc.25
+              source: https://github.com/onecx/onecx-parameter-bff
+    onecx-parameter-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-parameter-operator:1.8.0-rc.26
+        version: 1.8.0-rc.26
+        digest: sha256:9d178d77ce800f7babf916ab103c461e6e4001ba2b51607af8887c3c41959083
+        images:
+            - image: ghcr.io/onecx/onecx-parameter-operator:1.8.0-rc.26-native
+              digest: sha256:7306e9ca6fabe44a39f449f894c87e4b1d76edd81528b9d726bdfa9bfdaf080c
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-parameter-operator:1.8.0-rc.26
+              digest: sha256:bcda9d1c5c14711c4f009519b489297aaf48109972f907671a5514f3ba57888b
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T14:16:59Z"
+              revision: e93399d40634585ff1586f8e84c056a21f0a8489
+              buildVersion: 1.8.0-rc.26
+              source: https://github.com/onecx/onecx-parameter-operator
+    onecx-parameter-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-parameter-svc:1.8.0-rc.25
+        version: 1.8.0-rc.25
+        digest: sha256:a05e2981b97310eb7e5152dab70fc019ae03bd5c97b17f2656a3cfee545ca5a2
+        images:
+            - image: ghcr.io/onecx/onecx-parameter-svc:1.8.0-rc.25-native
+              digest: sha256:0bd3e7265697dca8930f11cfde59e6a07f5fb363d96d98470f531c499d40492f
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-parameter-svc:1.8.0-rc.25
+              digest: sha256:d127161033d30946aed89038fbe7c25f70b13ab6dc334e49e5efe4ba78c31b0a
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-27T13:35:42Z"
+              revision: 003e191378c8245b4a67faaf96a824ad3347e73c
+              buildVersion: 1.8.0-rc.25
+              source: https://github.com/onecx/onecx-parameter-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-parameter-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-parameter-ui:1.9.0-rc.35
+        version: 1.9.0-rc.35
+        digest: sha256:3018aee720381e52a7797172b797d8d19fe0cbc046b6baf9bec8be55594fba2c
+        images:
+            - image: ghcr.io/onecx/onecx-parameter-ui:1.9.0-rc.35
+              digest: sha256:8d94e397371ac75f22ae557c7c03631baec74cb75da245ad36713d424e85ee54
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-13T06:34:39Z"
+              revision: 7a6153b666290cc9457b544bc1247213ecec53dd
+              buildVersion: 1.9.0-rc.35
+              source: https://github.com/onecx/onecx-parameter-ui

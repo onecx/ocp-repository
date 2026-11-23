@@ -1,0 +1,64 @@
+apiVersion: v1
+organization: onecx
+product: onecx-test
+version: 1.14.0-rc.43
+createdAt: "2026-10-26T15:12:21Z"
+revision: 162204784583141eafb00f8cb6a7cbff87c8e3a0
+buildVersion: 1.14.0-rc.43
+helm: oci://ghcr.io/onecx/charts/onecx-test:1.14.0-rc.43
+digest: sha256:5112b3157cbe0a1f70586819f030bae3a15c9c252af08c7458bebd46d8422909
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-test-oidc:
+        helm: oci://ghcr.io/onecx/charts/onecx-test-oidc:1.8.0-rc.25
+        version: 1.8.0-rc.25
+        digest: sha256:ed915c5191c760156c357f0da05d3971a213deb881ed1f0a64b222c8d6b9cd77
+        images:
+            - image: ghcr.io/onecx/onecx-test-oidc:1.8.0-rc.25-native
+              digest: sha256:b25dc6dc5d936ac071e3035067abd18ce1a6c90471bd6952fc264cfc982024c9
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-test-oidc:1.8.0-rc.25
+              digest: sha256:cd02dc0d056ccf8b1c7f60551dc816e6537bef70004975dfba3c67cf0ac5d4f8
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-26T15:01:55Z"
+              revision: 964d2a105d9f03154367988cb923ce4ec735072b
+              buildVersion: 1.8.0-rc.25
+              source: https://github.com/onecx/onecx-test-oidc
+    onecx-test-operator:
+        helm: oci://ghcr.io/onecx/charts/onecx-test-operator:1.15.0-rc.23
+        version: 1.15.0-rc.23
+        digest: sha256:949a77edae70058937db12746f9596878109a089d82f2aacdf2f1a45e88aba87
+        images:
+            - image: ghcr.io/onecx/onecx-test-operator:1.15.0-rc.23-native
+              digest: sha256:d2e9b6655eb84a76d4ed3cace41306ed30158f546b7a23eef61e63f2341aae76
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-test-operator:1.15.0-rc.23
+              digest: sha256:764ae4cb7c84ec84351e89bab971c0ccb8a6963f8d1cf27e37cce1ec90657eff
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-26T14:46:01Z"
+              revision: 8fb9f9b9915d0a6f15bab8739ca0282a80b5ce99
+              buildVersion: 1.15.0-rc.23
+              source: https://github.com/onecx/onecx-test-operator

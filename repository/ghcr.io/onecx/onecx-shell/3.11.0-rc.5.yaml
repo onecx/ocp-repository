@@ -1,0 +1,56 @@
+apiVersion: v1
+organization: onecx
+product: onecx-shell
+version: 3.11.0-rc.5
+createdAt: "2026-11-21T10:54:32Z"
+revision: 22c482d13e6e8b14cdd277702b6f5e338a21cf7a
+buildVersion: 3.11.0-rc.5
+helm: oci://ghcr.io/onecx/charts/onecx-shell:3.11.0-rc.5
+digest: sha256:2dd49cefb895e0d040506d115123f0f6a5cf4e99e11cb1d13600b77c2be71dd7
+applications:
+    helm-product:
+        helm: oci://ghcr.io/onecx/charts/helm-product:0.4.0
+        version: 0.4.0
+        digest: sha256:12e9b71ecee7e094e7b1f2a592f813eb19e4e1c7973c54ee12ca3640b162e6a3
+    onecx-shell-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-shell-bff:1.19.0-rc.2
+        version: 1.19.0-rc.2
+        digest: sha256:390d647d1b6c8953181122849d66164830d6feeb2f9f3b58b67d2742861453b3
+        images:
+            - image: ghcr.io/onecx/onecx-shell-bff:1.19.0-rc.2
+              digest: sha256:fd95bddbcd42fa01105ba0d5614f6e2c568247d54b89f4a458e9b25ebd6711b7
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-20T16:18:37Z"
+              revision: 1802b7ad5de4bd001214a2d040112156528d4783
+              buildVersion: 1.19.0-rc.2
+              source: https://github.com/onecx/onecx-shell-bff
+            - image: ghcr.io/onecx/onecx-shell-bff:1.19.0-rc.2-native
+              digest: sha256:a7f63a12c9757b23962b02b861ee02fcb21fb4f0945c9c2dc71cbfb4e77ad983
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-shell-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-shell-ui:3.13.0-rc.4
+        version: 3.13.0-rc.4
+        digest: sha256:ec0bdbcd0d6220c0f5d2a1ed34a61301399023df09aa772f3432a81f3768f4bd
+        images:
+            - image: ghcr.io/onecx/onecx-shell-ui:3.13.0-rc.4
+              digest: sha256:cb25a4d1a23fde4f3669e2abb66277dc7038470edead26cfca100e910b271259
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-21T10:52:44Z"
+              revision: a483af3b83e2546a1a32d57dd9aed64592b39796
+              buildVersion: 3.13.0-rc.4
+              source: https://github.com/onecx/onecx-shell-ui

@@ -1,0 +1,52 @@
+apiVersion: v1
+organization: onecx
+product: onecx-shell
+version: 3.8.0-rc.6
+createdAt: "2026-10-28T21:26:58Z"
+revision: 9d5f841e5a17a0f30d60ca5e0fd778726833f486
+buildVersion: 3.8.0-rc.6
+helm: oci://ghcr.io/onecx/charts/onecx-shell:3.8.0-rc.6
+digest: sha256:3bf11f44b476e04cde4cb3d18f908d1fc3f71c7b8f22bd787137e4b8bb1e908c
+applications:
+    onecx-shell-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-shell-bff:1.17.0-rc.6
+        version: 1.17.0-rc.6
+        digest: sha256:cd2337d1821d778c72e4f16c3dd92dac667a8a1df5c20ba791cf78441404ae78
+        images:
+            - image: ghcr.io/onecx/onecx-shell-bff:1.17.0-rc.6-native
+              digest: sha256:f04b25a7cf1eb2848aad0f3393c75443646d6bf7e8d10079856014e63288bc47
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-shell-bff:1.17.0-rc.6
+              digest: sha256:90b29cb612b97eabbdf9c5efe1700c2524a1cd0003a628fb12d17d0c663f8351
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T20:57:41Z"
+              revision: fce94e392ed0c295c6a8aa5a6f6131b0834294ca
+              buildVersion: 1.17.0-rc.6
+              source: https://github.com/onecx/onecx-shell-bff
+    onecx-shell-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-shell-ui:3.10.0-rc.2
+        version: 3.10.0-rc.2
+        digest: sha256:fa57a664f166eb09c755e05ae45e9009e153668e617479fcce0de9df9def1e4d
+        images:
+            - image: ghcr.io/onecx/onecx-shell-ui:3.10.0-rc.2
+              digest: sha256:c7da3fe8afee0257b5b4e6fecfc9357e65782a11d64acc28ca6d6484942ca300
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T19:27:20Z"
+              revision: 79aa0bdd2517ebf54e4fd1be6c1ec3c64693658e
+              buildVersion: 3.10.0-rc.2
+              source: https://github.com/onecx/onecx-shell-ui
