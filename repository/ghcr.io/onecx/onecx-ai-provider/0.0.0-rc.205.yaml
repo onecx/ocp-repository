@@ -1,0 +1,118 @@
+apiVersion: v1
+organization: onecx
+product: onecx-ai-provider
+version: 0.0.0-rc.205
+createdAt: "2026-11-12T11:46:39Z"
+revision: b3927674102784e7bcda6125005663b3929bdd92
+buildVersion: 0.0.0-rc.205
+helm: oci://ghcr.io/onecx/charts/onecx-ai-provider:0.0.0-rc.205
+digest: sha256:7be9268f0445d1d6dcbc27303174bcbac4ae8ae743a6f3c1c3856db1dc130540
+applications:
+    onecx-ai-provider-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-ai-provider-bff:0.0.0-rc.65
+        version: 0.0.0-rc.65
+        digest: sha256:9f22609435e8f1521d8257eb48fa945d808585ae81b3242428c07276b2936165
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-ai-provider-bff:0.0.0-rc.65-native
+              digest: sha256:58ba0b13bec836663914aa93c864825d34eaafa399d396ffc8332ca98361c390
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-ai-provider-bff:0.0.0-rc.65
+              digest: sha256:46782a4ffd1e4b9625e32b4f03ac71d659a50c0f3fccea7a799451a60d544abd
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-11T08:14:41Z"
+              revision: 23511b311a87960e33a12e04488e4289ac53f65b
+              buildVersion: 0.0.0-rc.65
+              source: https://github.com/onecx/onecx-ai-provider-bff
+    onecx-ai-provider-runtime:
+        helm: oci://ghcr.io/onecx/charts/onecx-ai-provider-runtime:0.2.0-rc.3
+        version: 0.2.0-rc.3
+        digest: sha256:a37a2a6140d5ca533f32196f91269e9e16fff806a9ac297fb97ef4a52fda51e8
+        images:
+            - image: ghcr.io/onecx/onecx-ai-provider-runtime:0.2.0-rc.3-native
+              digest: sha256:77ee3434f29da03ec77070696689e840ae385d62880623f1bc89b1909601253f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-ai-provider-runtime:0.2.0-rc.3
+              digest: sha256:a2e3207d106059a90744c4f83c77d180aafb65de37d9374cee74930b405c1821
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-10T13:35:07Z"
+              revision: 4954481e2b666907219b1a493740accccfffceb4
+              buildVersion: 0.2.0-rc.3
+              source: https://github.com/onecx/onecx-ai-provider-runtime
+    onecx-ai-provider-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-ai-provider-svc:0.0.0-rc.80
+        version: 0.0.0-rc.80
+        digest: sha256:91a3ab16c32a9961a72fe9e54c568f941f6c12d53f6522eddc086086716c5ad6
+        images:
+            - image: ghcr.io/onecx/onecx-ai-provider-svc:0.0.0-rc.80
+              digest: sha256:3195cbb8f4f66bd49cabd73696f0113d1e269a0b41ed07037361629941856de7
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-12T11:32:46Z"
+              revision: 4152f04c9755cac62872f79233a722ffc540ddfd
+              buildVersion: 0.0.0-rc.80
+              source: https://github.com/onecx/onecx-ai-provider-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-ai-provider-svc:0.0.0-rc.80-native
+              digest: sha256:05e9874c217e58cf4967b52dcbdb9b8f0fe33d42dcdd1870ecc5eaa61edbf8fc
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-ai-provider-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-ai-provider-ui:0.0.0-rc.75
+        version: 0.0.0-rc.75
+        digest: sha256:a6263b5e762ce785d0bd13818edf40b22c2d2c74fb02cd32babb68f39e03eed4
+        images:
+            - image: ghcr.io/onecx/onecx-ai-provider-ui:0.0.0-rc.75
+              digest: sha256:3106ae36befa5bd9360231737bcf8d5b95a2576ba6e942fda1cfd004d3ea204d
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-11T13:28:54Z"
+              revision: 96c535b01241783760fdbf0a889f1f6d376a6ef2
+              buildVersion: 0.0.0-rc.75
+              source: https://github.com/onecx/onecx-ai-provider-ui

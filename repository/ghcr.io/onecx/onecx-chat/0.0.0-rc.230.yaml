@@ -1,0 +1,89 @@
+apiVersion: v1
+organization: onecx
+product: onecx-chat
+version: 0.0.0-rc.230
+createdAt: "2026-11-19T13:32:43Z"
+revision: ceda6ffdeee1301ed7f1cbd13f13611f97761448
+buildVersion: 0.0.0-rc.230
+helm: oci://ghcr.io/onecx/charts/onecx-chat:0.0.0-rc.230
+digest: sha256:cf9258ed9ae994b534f14df0e04b417b77b6030e03df05ff50b51f1438041ede
+applications:
+    onecx-chat-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-chat-bff:0.0.0-rc.70
+        version: 0.0.0-rc.70
+        digest: sha256:a7f54952dcb70b6255c81d89cb5b6de9fc804cc1d34e8c2b2ad2cb2b6ef9b145
+        images:
+            - image: ghcr.io/onecx/onecx-chat-bff:0.0.0-rc.70-native
+              digest: sha256:a97dbf10f660fee60c1982059a6cb8fa3151af25064f7dee59748ced9cd474d6
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-chat-bff:0.0.0-rc.70
+              digest: sha256:415cc891941dc93f4d5e5137ee59f4a62266d4116eed20b2883f1dc13ea48920
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-18T15:51:45Z"
+              revision: e6c3d48aec82cdad834834c2af2912be370459b2
+              buildVersion: 0.0.0-rc.70
+              source: https://github.com/onecx/onecx-chat-bff
+    onecx-chat-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-chat-svc:0.0.0-rc.80
+        version: 0.0.0-rc.80
+        digest: sha256:be7036d4cfdb318899fa488bb158ad92515423bf40d0b2fd5daec7df4b3f7482
+        images:
+            - image: ghcr.io/onecx/onecx-chat-svc:0.0.0-rc.80
+              digest: sha256:173adf2d4f1dc9247bac6b674f286db707b0d30750596a318d5c9b79f923e31f
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-18T15:42:04Z"
+              revision: 9c3d605547d9a5f121a70e220b668f988416559a
+              buildVersion: 0.0.0-rc.80
+              source: https://github.com/onecx/onecx-chat-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-chat-svc:0.0.0-rc.80-native
+              digest: sha256:0cec0ec8ad76a37e9dc0d5f8cb79e782dbd88e6fb017bbb2de105b4323d093b9
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+    onecx-chat-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-chat-ui:0.0.0-rc.107
+        version: 0.0.0-rc.107
+        digest: sha256:f1e98fef2f4edaae42a1618d3bb1b5b703ae01ac90316e44d9e4aa57f60a5ef6
+        images:
+            - image: ghcr.io/onecx/onecx-chat-ui:0.0.0-rc.107
+              digest: sha256:09f1bcc5145c3a19f37c43baf688b08d3a8d57e3a93681054d444b624b16db8b
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-19T13:30:44Z"
+              revision: a2cd8a4c7839c6479332d9f7117e296b01ea53c5
+              buildVersion: 0.0.0-rc.107
+              source: https://github.com/onecx/onecx-chat-ui
+    onecx-pipecat:
+        helm: oci://ghcr.io/onecx/charts/onecx-pipecat:0.0.0-rc.50
+        version: 0.0.0-rc.50
+        digest: sha256:fece635656fddd6879894b337030ee4aafa15816fc3e463e2a61d68d1b681ac1

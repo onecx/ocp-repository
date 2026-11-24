@@ -1,0 +1,85 @@
+apiVersion: v1
+organization: onecx
+product: onecx-search-config
+version: 0.0.0-rc.311
+createdAt: "2026-11-19T13:28:07Z"
+revision: 171f7ba5cf5fd8c9037ba17fc42b5aec21c0b459
+buildVersion: 0.0.0-rc.311
+helm: oci://ghcr.io/onecx/charts/onecx-search-config:0.0.0-rc.311
+digest: sha256:26902fc69b83373dee8e827c612fd1ce5dd12e7b4b20b06bbf831cd9f12cfe7e
+applications:
+    onecx-search-config-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-search-config-bff:0.0.0-rc.125
+        version: 0.0.0-rc.125
+        digest: sha256:a6345daaa326cd11c34a6b6866fa678348cd9c5693a2c0b7d029b019f83d7697
+        images:
+            - image: ghcr.io/onecx/onecx-search-config-bff:0.0.0-rc.125-native
+              digest: sha256:f28a25e72ec24ced17c8a755439f552e7419ab7d5db3261fba0b9fb5ddb50864
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-search-config-bff:0.0.0-rc.125
+              digest: sha256:f81a2d54e0995d65e4bd6748615e1c5ed87dd0f90ff1a76756a7a6fafcf3c841
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-18T19:26:23Z"
+              revision: a1ab882099d910345a7329936a040d094e161c8e
+              buildVersion: 0.0.0-rc.125
+              source: https://github.com/onecx/onecx-search-config-bff
+    onecx-search-config-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-search-config-svc:0.0.0-rc.156
+        version: 0.0.0-rc.156
+        digest: sha256:23514d8e7e1a9dd5d24f3b9ad24f8d3e4270d90f389e15ecfd70b86de89bb4b5
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-search-config-svc:0.0.0-rc.156-native
+              digest: sha256:6e42bb13f412916f23ecf8d3142576bb3533e886cc35cb7cc22e12658d9f7b90
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-search-config-svc:0.0.0-rc.156
+              digest: sha256:78a5e3d86aa931414837666b95c693c37f19d352f216b73e2752fcae15e55f92
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-18T15:44:44Z"
+              revision: 08606ec43d5a01d3e8e73970735212209cd83624
+              buildVersion: 0.0.0-rc.156
+              source: https://github.com/onecx/onecx-search-config-svc
+    onecx-search-config-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-search-config-ui:0.0.0-rc.87
+        version: 0.0.0-rc.87
+        digest: sha256:64acc8afa2c72479d83c487cf7774008820772798551ce56b4f7904ba93792c3
+        images:
+            - image: ghcr.io/onecx/onecx-search-config-ui:0.0.0-rc.87
+              digest: sha256:1b227c5a78aee40bc8550c5b2de0a88ed28c62acf6b8cfbf2dd90d528e6c27de
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-19T13:26:22Z"
+              revision: 0407362d638dc9e3e9f3271a9ac3a76ef6b36b06
+              buildVersion: 0.0.0-rc.87
+              source: https://github.com/onecx/onecx-search-config-ui

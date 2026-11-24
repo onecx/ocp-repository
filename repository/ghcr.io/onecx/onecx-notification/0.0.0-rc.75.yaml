@@ -1,0 +1,85 @@
+apiVersion: v1
+organization: onecx
+product: onecx-notification
+version: 0.0.0-rc.75
+createdAt: "2026-10-30T09:03:14Z"
+revision: d45b1c343cb05de26c544c6744914dea3b2c54b6
+buildVersion: 0.0.0-rc.75
+helm: oci://ghcr.io/onecx/charts/onecx-notification:0.0.0-rc.75
+digest: sha256:9901a3bd49f21e443f9255ae6dcb509f920668862e3df9b4285885a02092a66f
+applications:
+    onecx-notification-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-notification-bff:0.0.0-rc.51
+        version: 0.0.0-rc.51
+        digest: sha256:5a5a465eba273d87a3608a1e0a723a2dee12f9ebe0da245169b1cd4e4d54bec9
+        images:
+            - image: ghcr.io/onecx/onecx-notification-bff:0.0.0-rc.51-native
+              digest: sha256:afaac159585852770513af18ae03b236116609b03cda7d4ae8e3e4200327da37
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-notification-bff:0.0.0-rc.51
+              digest: sha256:c4ad36e08ce352e26101e5cb99d159f32eeb0c58e52a1f9238a46d5fc32cbaad
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T21:22:35Z"
+              revision: 00ad1d8fccef1e86a65cd34b74f35a50fdd26408
+              buildVersion: 0.0.0-rc.51
+              source: https://github.com/onecx/onecx-notification-bff
+    onecx-notification-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-notification-svc:0.0.0-rc.53
+        version: 0.0.0-rc.53
+        digest: sha256:7fcbd9baa2ae40c4c25130749ce17089f6e0be03cd068c42ececd7aea8b53631
+        images:
+            - image: ghcr.io/onecx/onecx-notification-svc:0.0.0-rc.53-native
+              digest: sha256:c865dfd6f48c0fa89c008796be089c1cfb226dae5ec84f36d87081fb3ba8e8ce
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-notification-svc:0.0.0-rc.53
+              digest: sha256:89998600f64914cbb0ed5e31faad8c8d69cb7c17971763f20ea986251f0afc93
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-28T21:09:46Z"
+              revision: 6d576de277bbe09bf85a39f5ce7cc0c3fbc82afc
+              buildVersion: 0.0.0-rc.53
+              source: https://github.com/onecx/onecx-notification-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-notification-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-notification-ui:0.1.0-rc.30
+        version: 0.1.0-rc.30
+        digest: sha256:86606358ab6b66a9ed2883640968620ca645df010c11a6f0aaac8de991a167b7
+        images:
+            - image: ghcr.io/onecx/onecx-notification-ui:0.1.0-rc.30
+              digest: sha256:2bd7ef81c7f843e9c9af94bad46ef1e622baf4dce976d056fd2eea8552ee725f
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-30T09:01:50Z"
+              revision: d73bc8060c01fc032322256f0898e28b72b05be2
+              buildVersion: 0.1.0-rc.30
+              source: https://github.com/onecx/onecx-notification-ui

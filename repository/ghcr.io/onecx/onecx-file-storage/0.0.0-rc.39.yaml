@@ -1,0 +1,43 @@
+apiVersion: v1
+organization: onecx
+product: onecx-file-storage
+version: 0.0.0-rc.39
+createdAt: "2026-08-25T13:20:12Z"
+revision: 1b54345a76b1430c46e9266f9b5cde69a1a8e850
+buildVersion: 0.0.0-rc.39
+helm: oci://ghcr.io/onecx/charts/onecx-file-storage:0.0.0-rc.39
+digest: sha256:c1a41769e9fe08e23ee397bf1d582132b47cf238fa865ad0b47a0435193a216b
+applications:
+    onecx-file-storage-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-file-storage-svc:0.0.0-rc.46
+        version: 0.0.0-rc.46
+        digest: sha256:6942058c5f62d7f474178a0306758cb50ac047dce62fee938a73346069a662e8
+        images:
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+            - image: ghcr.io/onecx/onecx-file-storage-svc:0.0.0-rc.46
+              digest: sha256:9ac1299242a061bf9a4aa2e7d5af600c1084d2b9a1a7fb77ec7758692a253916
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-08-25T12:52:08Z"
+              revision: f590324c40567e6a2af68a4483f5107f87308746
+              buildVersion: 0.0.0-rc.46
+              source: https://github.com/onecx/onecx-file-storage-svc
+            - image: ghcr.io/onecx/onecx-file-storage-svc:0.0.0-rc.46-native
+              digest: sha256:9c419773ada8c3812e81911f3f0a17bd3fa467e195564ce0c31763c48499a67c
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers

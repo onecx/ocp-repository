@@ -19,3 +19,11 @@ products:
   - product: onecx-welcome
   - product: onecx-workspace
   - product: onecx-k8s
+  - product: onecx-document
+  - product: onecx-notification
+  - product: onecx-chat
+  - product: onecx-service
+  - product: onecx-file-storage
+  - product: onecx-ai-provider
+  - product: onecx-search-config
+  

@@ -1,0 +1,85 @@
+apiVersion: v1
+organization: onecx
+product: onecx-document
+version: 0.0.0-rc.112
+createdAt: "2026-10-26T15:03:44Z"
+revision: 17d4b8a76ca4298dbb51210ba4dfce60260e672d
+buildVersion: 0.0.0-rc.112
+helm: oci://ghcr.io/onecx/charts/onecx-document:0.0.0-rc.112
+digest: sha256:fd53b1377ec72ae4ebfeb052f9c07f6af74bfeeb1f4f7b015350e3d9d3e1e01e
+applications:
+    onecx-document-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-document-bff:0.0.0-rc.39
+        version: 0.0.0-rc.39
+        digest: sha256:ec8d6add97e652f8986b836700946e91d549cc235933f47b689681360eeec1d9
+        images:
+            - image: ghcr.io/onecx/onecx-document-bff:0.0.0-rc.39-native
+              digest: sha256:93d30c53bb38012441aba3943f570e1ce07c9b79bb76ce1f5512c0c87ffa74c3
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+            - image: ghcr.io/onecx/onecx-document-bff:0.0.0-rc.39
+              digest: sha256:ce6682622a3275d0cee7b9f45e6235f888f3df6ee80c95b7e69823dfba8fef30
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-26T14:48:42Z"
+              revision: fe3df84f424f08be960587a9d4bc62c376fc3077
+              buildVersion: 0.0.0-rc.39
+              source: https://github.com/onecx/onecx-document-bff
+    onecx-document-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-document-svc:0.0.0-rc.42
+        version: 0.0.0-rc.42
+        digest: sha256:7bda9355cc08648f312c76ccda156e139452f79d21649b241c464c56a928da9b
+        images:
+            - image: ghcr.io/onecx/onecx-document-svc:0.0.0-rc.42-native
+              digest: sha256:2aea3e133591267af9abe0ad284ed1c0a07a5c4ed6ca2fee5eb363e53e620e57
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-document-svc:0.0.0-rc.42
+              digest: sha256:1942b92b40c1d0495f242d693000f0e5fb5d7cb4d79aa754f6cb6b086645102c
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-13T09:27:27Z"
+              revision: 0a5f85deb55858242a6b32ef744117f57da6f520
+              buildVersion: 0.0.0-rc.42
+              source: https://github.com/onecx/onecx-document-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-document-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-document-ui:0.0.0-rc.49
+        version: 0.0.0-rc.49
+        digest: sha256:22b5da87e054383722a1615585bb4aafa6f926af41279d3ff6801813c562fcbf
+        images:
+            - image: ghcr.io/onecx/onecx-document-ui:0.0.0-rc.49
+              digest: sha256:9724ef283f0b04bf0f416ddd574a41dea8c1a4ad983f6cf1bc4e9daaf050933d
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-10-09T07:51:20Z"
+              revision: cae51fb9eee0a2e7a584fae04ce97ccfa27b1e3d
+              buildVersion: 0.0.0-rc.49
+              source: https://github.com/onecx/onecx-document-ui
