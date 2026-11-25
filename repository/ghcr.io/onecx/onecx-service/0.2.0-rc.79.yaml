@@ -1,0 +1,56 @@
+apiVersion: v1
+organization: onecx
+product: onecx-service
+version: 0.2.0-rc.79
+createdAt: "2026-11-24T18:41:44Z"
+revision: 87fd91099d2e32309ae0a1d1c94d7c71fd878129
+buildVersion: 0.2.0-rc.79
+helm: oci://ghcr.io/onecx/charts/onecx-service:0.2.0-rc.79
+digest: sha256:7b88bbad1bf0f4eca47ecddbef27886f54c2f30f4d24091422dadc7e70e07ec5
+applications:
+    onecx-service-auth-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-service-auth-bff:0.2.0-rc.31
+        version: 0.2.0-rc.31
+        digest: sha256:992a1372f98effe42196e9c1fcf8788fe81568a855e8794394a64ee1b4b26363
+        images:
+            - image: ghcr.io/onecx/onecx-service-auth-bff:0.2.0-rc.31
+              digest: sha256:15ace78a1903d74ef39f83e1499b0f5929e22eb77216149f266d4ea0b72ec224
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-20T16:16:56Z"
+              revision: 6fc83e2db99ab6d0bb8d2b688a18fa4a67be2504
+              buildVersion: 0.2.0-rc.31
+              source: https://github.com/onecx/onecx-service-auth-bff
+            - image: ghcr.io/onecx/onecx-service-auth-bff:0.2.0-rc.31-native
+              digest: sha256:1f436c29d313344bbb8828cc085604556ca6483331abcc20ebea3e55a78e7b42
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+    onecx-service-auth-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-service-auth-ui:0.2.0-rc.25
+        version: 0.2.0-rc.25
+        digest: sha256:a376b9e30eda8a86717c56c371de67f326beea87cb0b6d81dbeb7fbf622442a0
+        images:
+            - image: ghcr.io/onecx/onecx-service-auth-ui:0.2.0-rc.25
+              digest: sha256:6e3b95bcf0dcb266546c686358edc888f2abead8ba7b9bf3b3e49e69ab06973c
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-24T18:39:14Z"
+              revision: 16ed44f0d43b5a0cd9758bc63c539b4972ec9bfe
+              buildVersion: 0.2.0-rc.25
+              source: https://github.com/onecx/onecx-service-auth-ui
+    onecx-service-redirect:
+        helm: oci://ghcr.io/onecx/charts/onecx-service-redirect:1.4.0-rc.30
+        version: 1.4.0-rc.30
+        digest: sha256:dd1cd7d84516b560b039dc1eec537905a8c9430f23b1bbe7d7c3d2e65f7d343c
