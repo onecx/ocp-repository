@@ -1,0 +1,97 @@
+apiVersion: v1
+organization: onecx
+product: onecx-chat
+version: 0.0.0-rc.233
+createdAt: "2026-11-27T08:36:54Z"
+revision: 4b1979315d519ce234e540b4a80e6f42be7e8631
+buildVersion: 0.0.0-rc.233
+helm: oci://ghcr.io/onecx/charts/onecx-chat:0.0.0-rc.233
+digest: sha256:c6afebedef2b4f85585fb3fae13fd9c525e75a95f0522b51daa535cbb0fdbad7
+applications:
+    onecx-chat-bff:
+        helm: oci://ghcr.io/onecx/charts/onecx-chat-bff:0.0.0-rc.72
+        version: 0.0.0-rc.72
+        digest: sha256:84f9bb2ecdbdaacb0e3cd11f270bae87fa1cfa4a76f4f6e3af51a0e98026893c
+        images:
+            - image: ghcr.io/onecx/onecx-chat-bff:0.0.0-rc.72
+              digest: sha256:75167e728426ab55c5104503c9415dbc8e8f8a3ad7a7aa765afaedd472fd0dba
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-20T16:42:27Z"
+              revision: 8b95e96c0f716d8bd3d28e6b9ef1b83fd4e71a40
+              buildVersion: 0.0.0-rc.72
+              source: https://github.com/onecx/onecx-chat-bff
+            - image: ghcr.io/onecx/onecx-chat-bff:0.0.0-rc.72-native
+              digest: sha256:d69176457ace1cddd7efe211de348a0877b60bf5e04510e332ad18e91b07b860
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+    onecx-chat-svc:
+        helm: oci://ghcr.io/onecx/charts/onecx-chat-svc:0.0.0-rc.80
+        version: 0.0.0-rc.80
+        digest: sha256:be7036d4cfdb318899fa488bb158ad92515423bf40d0b2fd5daec7df4b3f7482
+        images:
+            - image: ghcr.io/onecx/onecx-chat-svc:0.0.0-rc.80-native
+              digest: sha256:0cec0ec8ad76a37e9dc0d5f8cb79e782dbd88e6fb017bbb2de105b4323d093b9
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: containers
+            - image: ghcr.io/onecx/onecx-chat-svc:0.0.0-rc.80
+              digest: sha256:173adf2d4f1dc9247bac6b674f286db707b0d30750596a318d5c9b79f923e31f
+              type: jvm
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-18T15:42:04Z"
+              revision: 9c3d605547d9a5f121a70e220b668f988416559a
+              buildVersion: 0.0.0-rc.80
+              source: https://github.com/onecx/onecx-chat-svc
+            - image: ghcr.io/onecx/onecx-db-check:1.1.0-native
+              digest: sha256:b4bce22705370e07c5e87f8b6faced23106020d949a185843843f40316a0705f
+              type: native
+              kind: Deployment
+              architecture:
+                - arm64
+                - amd64
+              key: initContainers
+    onecx-chat-ui:
+        helm: oci://ghcr.io/onecx/charts/onecx-chat-ui:0.0.0-rc.109
+        version: 0.0.0-rc.109
+        digest: sha256:932396dfe0532b36fa5fde7f796d7fb9474a836f89943d32366bfc1feee225de
+        images:
+            - image: ghcr.io/onecx/onecx-chat-ui:0.0.0-rc.109
+              digest: sha256:094ceea9cc0e1af35ecfadf77d4dede67c88a567bac3953f705ccf6a0f4b9d95
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+                - arm64
+              key: containers
+              createdAt: "2026-11-27T08:35:13Z"
+              revision: 828af02c9fd5f87ef407a951a349ddb79c66cc3c
+              buildVersion: 0.0.0-rc.109
+              source: https://github.com/onecx/onecx-chat-ui
+    onecx-pipecat:
+        helm: oci://ghcr.io/onecx/charts/onecx-pipecat:0.0.0-rc.50
+        version: 0.0.0-rc.50
+        digest: sha256:fece635656fddd6879894b337030ee4aafa15816fc3e463e2a61d68d1b681ac1
+        images:
+            - image: ghcr.io/onecx/onecx-pipecat:0.0.0-rc.50
+              digest: sha256:6649341472e15cebfa12efd113a3f70999046299bfa3418dc6b2820507eb41d3
+              type: native
+              kind: Deployment
+              architecture:
+                - amd64
+              key: containers
